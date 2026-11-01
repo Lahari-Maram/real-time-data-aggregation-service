@@ -242,3 +242,4 @@ export class ForexAggregator {
 }
 
 export const aggregatorService = new ForexAggregator();
+

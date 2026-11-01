@@ -112,3 +112,4 @@ To deliver a working, deployed, high-converting product within the time limit:
   - Interactive currency converter and live rate comparison table.
   - Degraded state UI (offline/stale simulation and testable resilience).
   - One-click deployment ready for cloud hosting.
+

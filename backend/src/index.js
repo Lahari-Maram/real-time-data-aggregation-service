@@ -112,3 +112,4 @@ app.get('*', (req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Forex Aggregator Backend running on http://localhost:${PORT}`);
 });
+

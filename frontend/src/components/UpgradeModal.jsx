@@ -1,6 +1,6 @@
 // frontend/src/components/UpgradeModal.jsx
 import React, { useState } from 'react';
-import { Check, Zap, Shield, Bell, BarChart3, Clock, Sparkles } from 'lucide-react';
+import { Check, Zap, Shield, Bell, BarChart3, Sparkles } from 'lucide-react';
 
 export default function UpgradeModal({ isOpen, onClose }) {
   const [subscribed, setSubscribed] = useState(false);
@@ -32,9 +32,9 @@ export default function UpgradeModal({ isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="relative w-full max-w-lg bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl p-6 sm:p-8 text-white overflow-hidden">
-        {/* Glow backdrop */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
+      <div className="relative w-full max-w-lg bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-6 sm:p-8 text-white overflow-hidden">
+        {/* Subtle royal blue ambient glow */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
 
         <button
           onClick={onClose}
@@ -45,7 +45,7 @@ export default function UpgradeModal({ isOpen, onClose }) {
 
         {subscribed ? (
           <div className="text-center py-8">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto mb-4 animate-bounce">
+            <div className="w-16 h-16 rounded-full bg-blue-600/20 text-sky-400 border border-blue-500/30 flex items-center justify-center mx-auto mb-4 animate-bounce">
               <Check className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-bold tracking-tight text-white mb-2">
@@ -59,7 +59,7 @@ export default function UpgradeModal({ isOpen, onClose }) {
                 setSubscribed(false);
                 onClose();
               }}
-              className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl text-sm transition-all"
+              className="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl text-sm transition-all"
             >
               Continue to Dashboard
             </button>
@@ -67,25 +67,25 @@ export default function UpgradeModal({ isOpen, onClose }) {
         ) : (
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+              <span className="px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-500/10 text-sky-400 border border-blue-500/20 flex items-center gap-1">
                 <Sparkles className="w-3 h-3" /> TrustFX Pro
               </span>
             </div>
 
             <h3 className="text-2xl font-bold tracking-tight text-white">
-              Upgrade Your Financial Clarity
+              Institutional Clarity for Global Business
             </h3>
             <p className="text-sm text-slate-400 mt-1 mb-6">
-              Designed specifically for international freelancers, remote teams, and global business owners.
+              Built for high-volume freelancers, digital nomads, and international commerce teams.
             </p>
 
             {/* Price Box */}
-            <div className="bg-slate-800/60 border border-slate-700/80 rounded-xl p-4 mb-6 flex items-baseline justify-between">
+            <div className="bg-slate-950 border border-slate-800 rounded-xl p-4 mb-6 flex items-baseline justify-between">
               <div>
-                <span className="text-3xl font-extrabold text-white">$9</span>
+                <span className="text-3xl font-black text-white">$9</span>
                 <span className="text-slate-400 text-sm ml-1">/ month</span>
               </div>
-              <span className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded">
+              <span className="text-xs font-semibold text-sky-400 bg-blue-500/10 px-2 py-1 rounded border border-blue-500/20">
                 7-Day Free Trial • Cancel Anytime
               </span>
             </div>
@@ -96,7 +96,7 @@ export default function UpgradeModal({ isOpen, onClose }) {
                 const Icon = f.icon;
                 return (
                   <div key={i} className="flex items-start gap-3">
-                    <div className="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 shrink-0 mt-0.5">
+                    <div className="p-1.5 rounded-lg bg-blue-600/10 text-sky-400 shrink-0 mt-0.5">
                       <Icon className="w-4 h-4" />
                     </div>
                     <div>
@@ -111,14 +111,14 @@ export default function UpgradeModal({ isOpen, onClose }) {
             {/* CTA */}
             <button
               onClick={() => setSubscribed(true)}
-              className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 shadow-lg shadow-emerald-500/20 transition-all flex items-center justify-center gap-2 transform active:scale-95"
+              className="w-full py-3 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-lg shadow-blue-500/25 transition-all flex items-center justify-center gap-2 transform active:scale-95"
             >
               <Zap className="w-4 h-4 fill-current" />
               <span>Start 7-Day Free Trial</span>
             </button>
 
             <p className="text-[11px] text-center text-slate-500 mt-3">
-              No credit card required for trial. Guaranteed satisfaction or instant refund.
+              No credit card required for trial. Zero commitment.
             </p>
           </div>
         )}

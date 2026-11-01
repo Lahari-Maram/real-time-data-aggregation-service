@@ -227,3 +227,4 @@ docker run -p 5000:5000 trustfx
     │   └── utils/           # Currency metadata & helpers
     └── dist/                # Production build
 ```
+

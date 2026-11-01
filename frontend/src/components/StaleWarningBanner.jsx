@@ -57,3 +57,4 @@ export default function StaleWarningBanner({ meta, onRefresh, isLoading }) {
     </div>
   );
 }
+
