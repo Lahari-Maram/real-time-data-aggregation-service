@@ -9,7 +9,7 @@
     "start": "node backend/src/index.js",
     "backend": "npm --prefix backend run dev",
     "frontend": "npm --prefix frontend run dev",
-    "test": "node --test backend/test-providers.js"
+    "test": "node --test backend/test/aggregator.test.js"
   },
   "keywords": [
     "forex",
