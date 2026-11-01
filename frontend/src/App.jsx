@@ -83,7 +83,7 @@ export default function App() {
   const meta = ratesData?.meta;
 
   return (
-    <div className={`min-h-screen flex flex-col font-sans transition-colors duration-200 relative overflow-x-hidden ${
+    <div className={`min-h-screen flex flex-col font-sans transition-colors duration-200 relative overflow-x-clip ${
       theme === 'dark' ? 'dark text-zinc-100' : 'light text-zinc-900'
     }`}>
       {/* 100% VISIBLE FINTECH WALLPAPER BACKGROUND IMAGE */}
