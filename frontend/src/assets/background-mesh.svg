@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" fill="none">
+  <!-- Subtle Global Interbank Grid Coordinates -->
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="currentColor" stroke-width="0.5" stroke-opacity="0.08" />
+      <circle cx="48" cy="48" r="1" fill="currentColor" fill-opacity="0.15" />
+    </pattern>
+    <radialGradient id="fade" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#fff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="grid-mask">
+      <rect width="1440" height="900" fill="url(#fade)"/>
+    </mask>
+  </defs>
+
+  <rect width="1440" height="900" fill="url(#grid)" mask="url(#grid-mask)" />
+
+  <!-- Global Financial Nodes & Flight/Wire Lines -->
+  <g opacity="0.12" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4">
+    <!-- New York to London -->
+    <path d="M 380 320 Q 560 180 720 250" />
+    <!-- London to Frankfurt / Zurich -->
+    <path d="M 720 250 L 760 270" stroke-dasharray="none" />
+    <!-- Frankfurt to Tokyo -->
+    <path d="M 760 270 Q 980 160 1180 330" />
+    <!-- Tokyo to Singapore / Sydney -->
+    <path d="M 1180 330 Q 1150 480 1200 620" />
+    <!-- New York to San Francisco -->
+    <path d="M 380 320 L 220 340" />
+  </g>
+
+  <!-- Financial Hub Circles (London, NY, Frankfurt, Tokyo, Singapore) -->
+  <g fill="currentColor" opacity="0.2">
+    <!-- New York -->
+    <circle cx="380" cy="320" r="4" />
+    <circle cx="380" cy="320" r="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5" />
+    <text x="392" y="324" font-family="monospace" font-size="10" opacity="0.6">NYC</text>
+
+    <!-- London -->
+    <circle cx="720" cy="250" r="4" />
+    <circle cx="720" cy="250" r="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5" />
+    <text x="732" y="254" font-family="monospace" font-size="10" opacity="0.6">LON</text>
+
+    <!-- Frankfurt (ECB) -->
+    <circle cx="760" cy="270" r="3" />
+    <text x="772" y="274" font-family="monospace" font-size="10" opacity="0.6">ECB</text>
+
+    <!-- Tokyo -->
+    <circle cx="1180" cy="330" r="4" />
+    <circle cx="1180" cy="330" r="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5" />
+    <text x="1192" y="334" font-family="monospace" font-size="10" opacity="0.6">TYO</text>
+
+    <!-- Singapore -->
+    <circle cx="1100" cy="460" r="3" />
+    <text x="1112" y="464" font-family="monospace" font-size="10" opacity="0.6">SGP</text>
+  </g>
+</svg>

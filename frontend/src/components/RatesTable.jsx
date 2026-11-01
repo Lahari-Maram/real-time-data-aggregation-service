@@ -21,14 +21,12 @@ export default function RatesTable({ rates, baseCurrency = 'USD', meta }) {
       };
     });
 
-    // Filter
     const filtered = entries.filter(
       (c) =>
         c.code.toLowerCase().includes(search.toLowerCase()) ||
         c.name.toLowerCase().includes(search.toLowerCase())
     );
 
-    // Sort
     return filtered.sort((a, b) => {
       let comp = 0;
       if (sortBy === 'code') comp = a.code.localeCompare(b.code);
@@ -47,48 +45,48 @@ export default function RatesTable({ rates, baseCurrency = 'USD', meta }) {
   };
 
   return (
-    <div className="mt-8 bg-white dark:bg-zinc-950 border border-slate-200 dark:border-zinc-800 rounded-2xl overflow-hidden shadow-sm transition-colors">
-      <div className="p-4 sm:p-5 border-b border-slate-200 dark:border-zinc-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-slate-50/50 dark:bg-zinc-900/60">
+    <div className="mt-8 bg-white/95 dark:bg-zinc-950/95 border border-zinc-200 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-sm backdrop-blur-md transition-colors">
+      <div className="p-4 sm:p-6 border-b border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-zinc-50/50 dark:bg-zinc-900/60">
         <div>
-          <h3 className="text-base font-black text-slate-900 dark:text-white tracking-tight">Global Interbank Currency Matrix</h3>
-          <p className="text-xs text-slate-500 dark:text-zinc-400 font-mono">
+          <h3 className="text-base font-black text-zinc-900 dark:text-white tracking-tight">Global Interbank Currency Matrix</h3>
+          <p className="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
             Active central bank & liquidity provider feeds indexed to 1.00 {baseCurrency}
           </p>
         </div>
 
         {/* Search Bar */}
         <div className="relative max-w-xs w-full">
-          <Search className="w-4 h-4 text-slate-400 dark:text-zinc-500 absolute left-3 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-zinc-400 dark:text-zinc-500 absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             placeholder="Search ISO symbol or currency..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-white dark:bg-black border border-slate-200 dark:border-zinc-800 rounded-xl pl-9 pr-3 py-2 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+            className="w-full bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-800 rounded-xl pl-9 pr-3 py-2 text-xs text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600"
           />
         </div>
       </div>
 
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm">
-          <thead className="bg-slate-100/70 dark:bg-black text-slate-600 dark:text-zinc-400 text-xs font-mono font-semibold uppercase tracking-wider border-b border-slate-200 dark:border-zinc-800">
+          <thead className="bg-zinc-100/70 dark:bg-zinc-900/40 text-zinc-600 dark:text-zinc-400 text-xs font-mono font-semibold uppercase tracking-wider border-b border-zinc-200 dark:border-zinc-800">
             <tr>
               <th
                 onClick={() => toggleSort('code')}
-                className="py-3 px-4 sm:px-6 cursor-pointer hover:text-slate-900 dark:hover:text-white transition-colors"
+                className="py-3 px-4 sm:px-6 cursor-pointer hover:text-zinc-900 dark:hover:text-white transition-colors"
               >
                 <div className="flex items-center gap-1.5">
                   <span>CURRENCY</span>
-                  <ArrowUpDown className="w-3 h-3 text-slate-400 dark:text-zinc-600" />
+                  <ArrowUpDown className="w-3 h-3 text-zinc-400 dark:text-zinc-600" />
                 </div>
               </th>
               <th
                 onClick={() => toggleSort('rate')}
-                className="py-3 px-4 sm:px-6 cursor-pointer hover:text-slate-900 dark:hover:text-white transition-colors text-right"
+                className="py-3 px-4 sm:px-6 cursor-pointer hover:text-zinc-900 dark:hover:text-white transition-colors text-right"
               >
                 <div className="flex items-center justify-end gap-1.5">
                   <span>EXCHANGE RATE (1 {baseCurrency})</span>
-                  <ArrowUpDown className="w-3 h-3 text-slate-400 dark:text-zinc-600" />
+                  <ArrowUpDown className="w-3 h-3 text-zinc-400 dark:text-zinc-600" />
                 </div>
               </th>
               <th className="py-3 px-4 sm:px-6 text-right hidden sm:table-cell">
@@ -99,10 +97,10 @@ export default function RatesTable({ rates, baseCurrency = 'USD', meta }) {
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-100 dark:divide-zinc-850 dark:divide-zinc-900">
+          <tbody className="divide-y divide-zinc-100 dark:divide-zinc-900">
             {currencyList.length === 0 ? (
               <tr>
-                <td colSpan="4" className="py-8 text-center text-slate-500 dark:text-zinc-500 text-xs font-mono">
+                <td colSpan="4" className="py-8 text-center text-zinc-500 dark:text-zinc-500 text-xs font-mono">
                   No matching currencies found for "{search}"
                 </td>
               </tr>
@@ -110,30 +108,30 @@ export default function RatesTable({ rates, baseCurrency = 'USD', meta }) {
               currencyList.map((item) => (
                 <tr
                   key={item.code}
-                  className="hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors group"
+                  className="hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-colors group"
                 >
                   <td className="py-3 px-4 sm:px-6">
                     <div className="flex items-center gap-3">
                       <span className="text-xl leading-none">{item.flag}</span>
                       <div>
-                        <span className="font-bold font-mono text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        <span className="font-bold font-mono text-zinc-900 dark:text-white group-hover:text-zinc-950 dark:group-hover:text-zinc-200 transition-colors">
                           {item.code}
                         </span>
-                        <span className="text-slate-500 dark:text-zinc-400 text-xs ml-2 hidden sm:inline">
+                        <span className="text-zinc-500 dark:text-zinc-400 text-xs ml-2 hidden sm:inline">
                           {item.name}
                         </span>
                       </div>
                     </div>
                   </td>
-                  <td className="py-3 px-4 sm:px-6 text-right font-mono font-semibold text-slate-900 dark:text-white">
+                  <td className="py-3 px-4 sm:px-6 text-right font-mono font-semibold text-zinc-900 dark:text-white">
                     {item.rate > 0 ? item.rate.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 5 }) : 'N/A'}
                   </td>
-                  <td className="py-3 px-4 sm:px-6 text-right font-mono text-xs text-slate-500 dark:text-zinc-400 hidden sm:table-cell">
+                  <td className="py-3 px-4 sm:px-6 text-right font-mono text-xs text-zinc-500 dark:text-zinc-400 hidden sm:table-cell">
                     {item.rate > 0 ? (1 / item.rate).toFixed(5) : '—'} {baseCurrency}
                   </td>
                   <td className="py-3 px-4 sm:px-6 text-right hidden md:table-cell">
-                    <span className="inline-flex items-center gap-1 text-[11px] font-mono font-medium text-slate-500 dark:text-zinc-400">
-                      <ShieldCheck className="w-3 h-3 text-blue-500 dark:text-sky-400" />
+                    <span className="inline-flex items-center gap-1 text-[11px] font-mono font-medium text-zinc-500 dark:text-zinc-400">
+                      <ShieldCheck className="w-3 h-3 text-zinc-500 dark:text-zinc-400" />
                       {meta?.source ? meta.source.split('(')[0].trim() : 'Aggregated'}
                     </span>
                   </td>
@@ -143,7 +141,7 @@ export default function RatesTable({ rates, baseCurrency = 'USD', meta }) {
           </tbody>
         </table>
       </div>
-      <div className="p-3 text-center border-t border-slate-200 dark:border-zinc-800 text-xs font-mono text-slate-500 dark:text-zinc-500 bg-slate-50/50 dark:bg-black">
+      <div className="p-3.5 text-center border-t border-zinc-200 dark:border-zinc-800 text-xs font-mono text-zinc-500 dark:text-zinc-500 bg-zinc-50/50 dark:bg-zinc-950">
         {currencyList.length} global ISO currencies synced • European Central Bank reference model
       </div>
     </div>
