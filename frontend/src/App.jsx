@@ -8,7 +8,7 @@ import RatesTable from './components/RatesTable';
 import ObservabilityDrawer from './components/ObservabilityDrawer';
 import UpgradeModal from './components/UpgradeModal';
 import { ShieldCheck, Radio, Globe2, Clock, BadgePercent, ArrowRight, CheckCircle2, Zap } from 'lucide-react';
-import backgroundMesh from './assets/background-mesh.svg';
+import fintechBg from './assets/fintech-bg.jpg';
 
 export default function App() {
   const [baseCurrency, setBaseCurrency] = useState('USD');
@@ -84,19 +84,24 @@ export default function App() {
 
   return (
     <div className={`min-h-screen flex flex-col font-sans transition-colors duration-200 relative overflow-x-hidden ${
-      theme === 'dark' ? 'dark bg-textured-dark text-zinc-100' : 'light bg-textured-light text-zinc-900'
+      theme === 'dark' ? 'dark text-zinc-100' : 'light text-zinc-900'
     }`}>
-      {/* Textured Background Image (Global Interbank Network Mesh - Not Plain) */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-40 dark:opacity-30">
+      {/* 100% VISIBLE FINTECH WALLPAPER BACKGROUND IMAGE */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <img
-          src={backgroundMesh}
-          alt=""
-          className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-screen"
+          src={fintechBg}
+          alt="Global Interbank Forex Network"
+          className={`w-full h-full object-cover transition-all duration-300 ${
+            theme === 'dark' ? 'opacity-75 brightness-90 contrast-110' : 'opacity-25 invert contrast-125'
+          }`}
         />
+        {/* Soft Vignette Overlays to Ensure Cards & Text Are Perfectly Crisp */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/85 dark:block hidden"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/90 dark:hidden block"></div>
       </div>
 
       {/* Top Professional Interbank Market Sessions Ticker */}
-      <div className="border-b border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-950/70 px-4 py-1.5 text-[11px] font-mono text-zinc-600 dark:text-zinc-400 z-30 relative backdrop-blur-md">
+      <div className="border-b border-zinc-200/80 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-950/80 px-4 py-1.5 text-[11px] font-mono text-zinc-600 dark:text-zinc-400 z-30 relative backdrop-blur-md">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-3">
             <span className="flex items-center gap-1.5 font-semibold text-zinc-800 dark:text-zinc-200">
@@ -149,23 +154,23 @@ export default function App() {
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 relative z-10">
         {/* Hero Section */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 border-b border-zinc-200 dark:border-zinc-800">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 border-b border-zinc-200/80 dark:border-zinc-800/80">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-800">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/90 dark:bg-zinc-900/90 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-800 shadow-sm backdrop-blur">
               <ShieldCheck className="w-3.5 h-3.5 text-zinc-600 dark:text-zinc-400" />
               <span>Multi-Source Resilient Routing • Fallback Consensus Model</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-zinc-900 dark:text-white tracking-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-zinc-900 dark:text-white tracking-tight drop-shadow-sm">
               Real-Time Foreign Exchange
             </h1>
-            <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
+            <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-300 max-w-2xl leading-relaxed drop-shadow-sm">
               Serving verified European Central Bank, Open Exchange Rates, and distributed CDN feeds with automated failover and zero-500 uptime guarantee.
             </p>
           </div>
 
           {/* Quick Metrics Cards */}
           <div className="flex items-center gap-3 shrink-0">
-            <div className="bg-white/90 dark:bg-zinc-950/90 border border-zinc-200 dark:border-zinc-800 rounded-2xl px-5 py-3 text-right shadow-sm backdrop-blur">
+            <div className="bg-white/90 dark:bg-zinc-950/90 border border-zinc-200 dark:border-zinc-800 rounded-2xl px-5 py-3 text-right shadow-sm backdrop-blur-md">
               <div className="text-[10px] uppercase font-bold tracking-wider text-zinc-400 dark:text-zinc-500 font-mono">
                 AUDIT CONFIDENCE
               </div>
@@ -175,7 +180,7 @@ export default function App() {
               </div>
             </div>
 
-            <div className="bg-white/90 dark:bg-zinc-950/90 border border-zinc-200 dark:border-zinc-800 rounded-2xl px-5 py-3 text-right shadow-sm backdrop-blur">
+            <div className="bg-white/90 dark:bg-zinc-950/90 border border-zinc-200 dark:border-zinc-800 rounded-2xl px-5 py-3 text-right shadow-sm backdrop-blur-md">
               <div className="text-[10px] uppercase font-bold tracking-wider text-zinc-400 dark:text-zinc-500 font-mono">
                 ACTIVE PROVIDER
               </div>
@@ -188,7 +193,7 @@ export default function App() {
 
         {/* Feature Stat Chips */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/90 dark:bg-zinc-950/90 border border-zinc-200 dark:border-zinc-800 shadow-sm backdrop-blur">
+          <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/90 dark:bg-zinc-950/90 border border-zinc-200 dark:border-zinc-800 shadow-sm backdrop-blur-md">
             <div className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300">
               <Globe2 className="w-4 h-4" />
             </div>
@@ -198,7 +203,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/90 dark:bg-zinc-950/90 border border-zinc-200 dark:border-zinc-800 shadow-sm backdrop-blur">
+          <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/90 dark:bg-zinc-950/90 border border-zinc-200 dark:border-zinc-800 shadow-sm backdrop-blur-md">
             <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
               <BadgePercent className="w-4 h-4" />
             </div>
@@ -208,7 +213,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/90 dark:bg-zinc-950/90 border border-zinc-200 dark:border-zinc-800 shadow-sm backdrop-blur">
+          <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/90 dark:bg-zinc-950/90 border border-zinc-200 dark:border-zinc-800 shadow-sm backdrop-blur-md">
             <div className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300">
               <Clock className="w-4 h-4" />
             </div>
@@ -218,7 +223,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/90 dark:bg-zinc-950/90 border border-zinc-200 dark:border-zinc-800 shadow-sm backdrop-blur">
+          <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/90 dark:bg-zinc-950/90 border border-zinc-200 dark:border-zinc-800 shadow-sm backdrop-blur-md">
             <div className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300">
               <CheckCircle2 className="w-4 h-4" />
             </div>
@@ -251,7 +256,7 @@ export default function App() {
         />
 
         {/* High-End Monochrome Pro Banner */}
-        <div className="bg-white/95 dark:bg-zinc-950/95 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 sm:p-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-sm backdrop-blur-md">
+        <div className="bg-white/90 dark:bg-zinc-950/90 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 sm:p-8 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-sm backdrop-blur-md">
           <div className="space-y-2 max-w-2xl">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-800 font-mono">
               <Zap className="w-3.5 h-3.5 fill-current text-amber-500" />
@@ -284,7 +289,7 @@ export default function App() {
       </main>
 
       {/* Footer with Developer Build Watermark */}
-      <footer className="border-t border-zinc-200 dark:border-zinc-850 dark:border-zinc-900 bg-white/70 dark:bg-zinc-950/70 py-8 mt-12 text-xs text-zinc-500 dark:text-zinc-400 relative z-10 transition-colors backdrop-blur">
+      <footer className="border-t border-zinc-200/80 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-950/80 py-8 mt-12 text-xs text-zinc-500 dark:text-zinc-400 relative z-10 transition-colors backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
@@ -309,7 +314,7 @@ export default function App() {
           </div>
 
           {/* Developer Stamp Watermark */}
-          <div className="pt-4 border-t border-zinc-200 dark:border-zinc-900 flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-zinc-400 dark:text-zinc-600">
+          <div className="pt-4 border-t border-zinc-200/80 dark:border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-zinc-400 dark:text-zinc-600">
             <div>
               ENGINE: Node.js 20 ESM • RESILIENCE: 3-Tier Circuit Breaker • ARCH: Monorepo Micro-Cache
             </div>
