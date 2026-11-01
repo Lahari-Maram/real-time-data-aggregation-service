@@ -1,6 +1,7 @@
 {
   "name": "real-time-data-aggregation-service",
   "version": "1.0.0",
+  "type": "module",
   "description": "Real-time forex data aggregation service with multi-source failover and zero-crash guarantee",
   "scripts": {
     "install:all": "npm --prefix backend install && npm --prefix frontend install",
